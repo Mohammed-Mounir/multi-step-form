@@ -1,0 +1,24 @@
+<h1>Finishing up</h1>
+<h3 class="h3-shared">Double-check everything looks OK before confirming</h3>
+
+<div class="summary">
+    <div class="row">
+        <p>Arcade ({{data.plans.billingCycle}})</p>
+    </div>
+    <div class="row">
+        <button (click)="onGoToPlanStep()">Change</button>
+        <p>${{data.plans.selectedPlan?.amount?.[data.plans.billingCycle]}}/{{getBillingCycleText()}}</p>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div *ngFor="let addon of getSelectedAddons()" class="row">
+        <p class="title">{{addon.title}}</p>
+        <p class="price">+${{addon.amount[data.plans.billingCycle]}}/{{getBillingCycleText()}}</p>
+    </div>
+</div>
+
+<div class="total">
+    <p>Total (per {{data.plans.billingCycle.slice(0, -2)}})</p>
+    <p>+${{getTotalAmount()}}/{{getBillingCycleText()}}</p>
+</div>

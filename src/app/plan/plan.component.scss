@@ -1,0 +1,139 @@
+h3 {
+  color: var(--cool-gray);
+  font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button {
+  border: 1px solid var(--light-gray);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: transparent;
+  cursor: pointer;
+
+  img {
+    width: 3rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--marine-blue);
+    }
+
+    span {
+      color: var(--cool-gray);
+      font-weight: 500;
+
+      &:nth-of-type(2) {
+        color: var(--marine-blue);
+        font-weight: 700;
+      }
+    }
+  }
+
+  &.selected {
+    border: 1px solid var(--purplish-blue);
+    background: color-mix(in srgb, var(--purplish-blue) 3%, transparent);
+  }
+}
+
+.toggle-switch {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--purplish-blue) 3%, transparent);
+  border-radius: 0.5rem;
+
+  p {
+    color: var(--cool-gray);
+    font-weight: 500;
+
+    &.active {
+      color: var(--marine-blue);
+    }
+  }
+
+  .knob,
+  .btn-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .pill {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    overflow: hidden;
+  }
+
+  .pill > .btn-bg {
+    border-radius: 100px;
+  }
+
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .knob {
+    z-index: 2;
+  }
+
+  .btn-bg {
+    width: 100%;
+    background-color: var(--marine-blue);
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+
+  .pill .knob:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    color: #fff;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  }
+
+  .pill .checkbox:checked + .knob:before {
+    left: 24px;
+  }
+
+  .pill .knob,
+  .pill .knob:before,
+  .pill .btn-bg {
+    transition: 0.3s ease all;
+  }
+}

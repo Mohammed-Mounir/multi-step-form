@@ -1,0 +1,15 @@
+<h1>Pick add-ons</h1>
+<h3 class="h3-shared">Add-ons help enhance your gaming experience.</h3>
+
+<ul role="listbox" tabindex="0" class="checkbox-list" aria-label="Addon Selection List" aria-multiselectable="true">
+    <li *ngFor="let addon of data?.list; let i = index" [attr.aria-selected]="addon.selected"
+        [class.checked]="addon.selected" tabindex="0" (click)="toggleAddon(addon.id)"
+        (keydown)="onItemKeyDown($event, addon.id, i)" role="option">
+        <input tabindex="-1" type="checkbox" [id]="addon.id" [attr.aria-label]="addon.title"
+            [(ngModel)]="addon.selected" (click)="$event.stopPropagation()">
+        <label tabindex="-1" [for]="addon.id">
+            <p>{{ addon.title }} <span>{{addon.subtitle}}</span></p>
+            <p>${{addon.amount[billingCycle]}}/{{billingCycle === 'monthly' ? 'mo' : 'yr'}}</p>
+        </label>
+    </li>
+</ul>

@@ -1,0 +1,62 @@
+@import "../../styles/layout/responsive";
+
+.steps {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  @include desktop {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      border: 1px solid;
+      color: var(--white);
+      font-weight: bold;
+
+      &.current-step {
+        color: #000;
+        background-color: var(--light-blue);
+        border: unset;
+      }
+    }
+
+    @include desktop {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    div {
+      display: none;
+
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+
+        h4 {
+          color: var(--pastel-blue);
+          font-size: 0.8rem;
+          font-weight: 400;
+        }
+
+        h3 {
+          color: var(--white);
+          font-size: 0.9rem;
+          letter-spacing: 0.05rem;
+        }
+      }
+    }
+  }
+}

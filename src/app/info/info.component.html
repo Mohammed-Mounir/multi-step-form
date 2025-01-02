@@ -1,0 +1,43 @@
+<h1>Personal info</h1>
+<h3 class="h3-shared">Please provide your name, email address, and phone number.</h3>
+<form [formGroup]="infoForm">
+    <div class="field">
+        <div class="label-wrapper">
+            <label for="name">Name</label>
+            <ng-container *ngIf="infoForm.get('name')?.invalid && infoForm.get('name')?.touched">
+                <div class="error-message" *ngIf="infoForm.get('name')?.errors?.['required']">
+                    This field is required
+                </div>
+            </ng-container>
+        </div>
+        <input id="name" type="text" formControlName="name" placeholder="e.g. Stephen King">
+    </div>
+    <div class="field">
+        <div class="label-wrapper">
+            <label for="email">Email Address</label>
+            <ng-container *ngIf="infoForm.get('email')?.invalid && infoForm.get('email')?.touched">
+                <div class="error-message" *ngIf="infoForm.get('email')?.errors?.['required']">
+                    This field is required
+                </div>
+                <div class="error-message" *ngIf="infoForm.get('email')?.errors?.['email']">
+                    Please enter a valid email
+                </div>
+            </ng-container>
+        </div>
+        <input id="email" type="email" formControlName="email" placeholder="e.g. stephenking@lorem.com">
+    </div>
+    <div class="field">
+        <div class="label-wrapper">
+            <label for="phone">Phone Number</label>
+            <ng-container *ngIf="infoForm.get('phone')?.invalid && infoForm.get('phone')?.touched">
+                <div class="error-message" *ngIf="infoForm.get('phone')?.errors?.['required']">
+                    This field is required
+                </div>
+                <div class="error-message" *ngIf="infoForm.get('phone')?.errors?.['invalidPhone']">
+                    Please enter a valid phone
+                </div>
+            </ng-container>
+        </div>
+        <input id="phone" type="text" formControlName="phone" placeholder="e.g. +201222222222">
+    </div>
+</form>

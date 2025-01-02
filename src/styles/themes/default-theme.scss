@@ -1,0 +1,12 @@
+@import '../layout/responsive.scss';
+
+body {
+  background-color: var(--magnolia);
+  color: var(--marine-blue);
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

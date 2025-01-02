@@ -1,0 +1,13 @@
+<div class="steps">
+    <ng-container *ngFor="let in of counter(steps); let i = index">
+        <div class="step">
+            <p [ngClass]="{'current-step': currentStep - 1 === i}">{{i+1}}</p>
+            <div>
+                <h4>Step {{i+1}}</h4>
+                <h3>{{getTitle(i+1)}}</h3>
+            </div>
+        </div>
+    </ng-container>
+
+
+</div>
